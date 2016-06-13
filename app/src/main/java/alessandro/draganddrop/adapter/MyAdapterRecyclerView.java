@@ -17,7 +17,7 @@ import alessandro.draganddrop.model.Item;
 /**
  * Created by Alessandro on 12/01/2016.
  */
-public class MyAdapterRecyclerView extends RecyclerView.Adapter<MyAdapterRecyclerView.MyViewHolder>{
+public class MyAdapterRecyclerView extends RecyclerView.Adapter<MyAdapterRecyclerView.MyViewHolder> {
 
     private List<Item> mList;
 
@@ -27,7 +27,7 @@ public class MyAdapterRecyclerView extends RecyclerView.Adapter<MyAdapterRecycle
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -41,36 +41,37 @@ public class MyAdapterRecyclerView extends RecyclerView.Adapter<MyAdapterRecycle
 
     @Override
     public int getItemCount() {
-        if (mList == null){
+        if (mList == null) {
             return 0;
-        }else {
+        } else {
             return mList.size();
         }
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView ivUser;
         TextView tvName, tvDescription;
+
         public MyViewHolder(View itemView) {
             super(itemView);
-            ivUser          = (ImageView)itemView.findViewById(R.id.ivUser);
-            tvName          = (TextView)itemView.findViewById(R.id.tvName);
-            tvDescription   = (TextView)itemView.findViewById(R.id.tvDescription);
+            ivUser = (ImageView) itemView.findViewById(R.id.ivUser);
+            tvName = (TextView) itemView.findViewById(R.id.tvName);
+            tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
         }
 
-        public void setName(String name){
+        public void setName(String name) {
             tvName.setText(name);
         }
 
-        public void setDescription(String description){
+        public void setDescription(String description) {
             tvDescription.setText(description);
         }
 
-        public void setImage(int idImage){
+        public void setImage(int idImage) {
             Picasso.with(ivUser.getContext()).
                     load(idImage).
                     centerCrop().
-                    resize(60,60).
+                    resize(60, 60).
                     transform(new CircleTransform()).
                     into(ivUser);
         }

@@ -1,8 +1,8 @@
 package alessandro.draganddrop;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
@@ -16,6 +16,8 @@ import alessandro.draganddrop.interfaces.CallbackItemTouch;
 import alessandro.draganddrop.model.Item;
 
 public class MainActivity extends AppCompatActivity implements CallbackItemTouch {
+
+    private static final String TAG = "MainActivity";
 
     private RecyclerView mRecyclerView; // RecyclerVIew
     private MyAdapterRecyclerView myAdapterRecyclerView; //The Adapter for RecyclerVIew
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements CallbackItemTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         initList(); //call method
 
     }
@@ -61,23 +63,30 @@ public class MainActivity extends AppCompatActivity implements CallbackItemTouch
     /**
      * Add data to the List
      */
-    private void initList(){
+    private void initList() {
         // Adds data to List of Objects Item
         mList = new ArrayList<>();
-        for (int i = 0; i<names.length;i++){
-            mList.add(new Item(images[i],names[i],textDescription));
+        for (int i = 0; i < names.length; i++) {
+            mList.add(new Item(images[i], names[i], textDescription));
         }
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this)); // Set LayoutManager in the RecyclerView
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(this)); // Set LayoutManager in the RecyclerView
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         myAdapterRecyclerView = new MyAdapterRecyclerView(mList); // Create Instance of MyAdapterRecyclerView
         mRecyclerView.setAdapter(myAdapterRecyclerView); // Set Adapter for RecyclerView
         ItemTouchHelper.Callback callback = new MyItemTouchHelperCallback(this);// create MyItemTouchHelperCallback
-        ItemTouchHelper touchHelper = new ItemTouchHelper(callback); // Create ItemTouchHelper and pass with parameter the MyItemTouchHelperCallback
+        ItemTouchHelper touchHelper = new ItemTouchHelper(callback); // Create ItemTouchHelper and pass with parameter the
+        // MyItemTouchHelperCallback
         touchHelper.attachToRecyclerView(mRecyclerView); // Attach ItemTouchHelper to RecyclerView
     }
 
     @Override
     public void itemTouchOnMove(int oldPosition, int newPosition) {
-        Collections.swap(mList,oldPosition,newPosition); // change position
-        myAdapterRecyclerView.notifyItemMoved(oldPosition, newPosition); //notifies changes in adapter, in this case use the notifyItemMoved
+
+        if (oldPosition == mList.size() - 1 || newPosition == mList.size() - 1) {
+            return;
+        }
+        Collections.swap(mList, oldPosition, newPosition); // change position
+        myAdapterRecyclerView.notifyItemMoved(oldPosition, newPosition); //notifies changes in adapter, in this case use the
+        // notifyItemMoved
     }
 }
