@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,6 +13,7 @@ import alessandro.draganddrop.adapter.MyAdapterRecyclerView;
 import alessandro.draganddrop.adapter.MyItemTouchHelperCallback;
 import alessandro.draganddrop.interfaces.CallbackItemTouch;
 import alessandro.draganddrop.model.Item;
+import alessandro.draganddrop.util.ItemTouchHelper;
 
 public class MainActivity extends AppCompatActivity implements CallbackItemTouch {
 

@@ -19,6 +19,9 @@ import alessandro.draganddrop.model.Item;
  */
 public class MyAdapterRecyclerView extends RecyclerView.Adapter<MyAdapterRecyclerView.MyViewHolder> {
 
+    public static final int NORMAL = 0x00;
+    public static final int ADD = 0x01;
+
     private List<Item> mList;
 
     public MyAdapterRecyclerView(List<Item> mList) {
@@ -37,6 +40,15 @@ public class MyAdapterRecyclerView extends RecyclerView.Adapter<MyAdapterRecycle
         holder.setName(item.getName()); // Name
         holder.setDescription(item.getDescription()); // Description
         holder.setImage(item.getIdImage()); // Image
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == getItemCount() - 1) {
+            return ADD;
+        } else {
+            return NORMAL;
+        }
     }
 
     @Override
@@ -75,7 +87,6 @@ public class MyAdapterRecyclerView extends RecyclerView.Adapter<MyAdapterRecycle
                     transform(new CircleTransform()).
                     into(ivUser);
         }
-
     }
 
 }
