@@ -1,22 +1,23 @@
-package alessandro.draganddrop.adapter;
+package com.dreamliner.dragrv.util;
 
-import android.annotation.SuppressLint;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
-import alessandro.draganddrop.interfaces.CallbackItemTouch;
-import alessandro.draganddrop.util.ItemTouchHelper;
+import com.dreamliner.dragrv.interfaces.CallbackItemTouch;
 
 /**
- * Created by Alessandro on 12/01/2016.
+ * @author chenzj
+ * @Title: CustomItHelperCallback
+ * @Description: 类的描述 - 默认实现的ItemTouchHelper.Callback
+ * @date 2016/6/14 09:52
+ * @email admin@chenzhongjin.cn
  */
-public class MyItemTouchHelperCallback extends ItemTouchHelper.Callback {
-
-    private static final String TAG = "MyItemTouchHelperCallback";
+public class CustomItHelperCallback extends ItemTouchHelper.Callback {
 
     CallbackItemTouch callbackItemTouch; // interface
 
-    public MyItemTouchHelperCallback(CallbackItemTouch callbackItemTouch) {
+    public CustomItHelperCallback(CallbackItemTouch callbackItemTouch) {
         this.callbackItemTouch = callbackItemTouch;
     }
 
@@ -30,7 +31,6 @@ public class MyItemTouchHelperCallback extends ItemTouchHelper.Callback {
         return false; // swiped disabled
     }
 
-    @SuppressLint("LongLogTag")
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {

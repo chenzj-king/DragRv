@@ -1,11 +1,15 @@
-package alessandro.draganddrop.model;
+package com.dreamliner.dragrv.model;
 
 /**
- * Created by Alessandro on 12/01/2016.
+ * @author chenzj
+ * @Title: Item
+ * @Description: 类的描述 - 对应的adpater所用的bean
+ * @date 2016/6/14 09:52
+ * @email admin@chenzhongjin.cn
  */
 public class Item {
     private int idImage;
-    private String name,description;
+    private String name, description;
 
     public Item(int idImage, String name, String description) {
         this.idImage = idImage;

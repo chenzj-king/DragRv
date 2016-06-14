@@ -1,4 +1,4 @@
-package alessandro.draganddrop.adapter;
+package com.dreamliner.dragrv.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -8,7 +8,11 @@ import android.graphics.Paint;
 import com.squareup.picasso.Transformation;
 
 /**
- * Created by julian on 13/6/21.
+ * @author chenzj
+ * @Title: CircleTransform
+ * @Description: 类的描述 - 圆形转换
+ * @date 2016/6/14 09:52
+ * @email admin@chenzhongjin.cn
  */
 public class CircleTransform implements Transformation {
     @Override
