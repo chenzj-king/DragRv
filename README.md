@@ -7,10 +7,8 @@
 
 
 ## Demo
-
-![](http://i.imgur.com/3MQ2Sw6.gif)
-![](http://i.imgur.com/cHaF1iW.gif)
-
+![](http://i.imgur.com/CQaW6Qz.gif)
+![](http://i.imgur.com/7ZkygYO.gif)
 
 ## Thanks ##
 
