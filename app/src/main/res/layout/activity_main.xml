@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.dreamliner.dragrv.ui.activity.main.MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:divider="@drawable/line_divider"
+              android:orientation="vertical"
+              android:showDividers="middle"
+              tools:context="com.dreamliner.dragrv.ui.activity.main.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <TextView
+        android:id="@+id/linear_layout_tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"/>
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="LinearLayoutManager"
+        />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/grid_layout_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="GridLayoutManager"
+        />
+
+    <TextView
+        android:id="@+id/click_drag_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="ClickDrag"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"/>
+
+</LinearLayout>

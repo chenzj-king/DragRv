@@ -24,7 +24,8 @@ dependencies {
     testCompile libraries.junit
     compile libraries.supportAppCompat
     compile libraries.supportRecyclerView
-    compile libraries.picasso
+    compile libraries.glide
+    compile libraries.glideTransformations
 
     compile libraries.rvHelper
 }

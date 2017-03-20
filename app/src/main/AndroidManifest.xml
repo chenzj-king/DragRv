@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.activity.main.LinearLayoutActivity"
+            android:theme="@style/DragTheme"
+            />
+        <activity
+            android:name=".ui.activity.main.GridLayoutActivity"
+            android:theme="@style/DragTheme"/>
+        <activity
+            android:name=".ui.activity.main.ClickDragActivity"
+            android:theme="@style/DragTheme"/>
+
     </application>
 
 </manifest>

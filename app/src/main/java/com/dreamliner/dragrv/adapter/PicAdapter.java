@@ -1,16 +1,17 @@
 package com.dreamliner.dragrv.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.dreamliner.dragrv.R;
 import com.dreamliner.dragrv.model.Item;
-import com.dreamliner.dragrv.util.CircleTransform;
 import com.dreamliner.rvhelper.adapter.BaseAdapter;
-import com.squareup.picasso.Picasso;
+import com.dreamliner.rvhelper.viewholder.BaseViewHolder;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * @author chenzj
@@ -22,7 +23,7 @@ import com.squareup.picasso.Picasso;
 public class PicAdapter extends BaseAdapter<Item, PicAdapter.ViewHolder> {
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder createCustomViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(getView(R.layout.item_list, parent));
     }
 
@@ -34,7 +35,7 @@ public class PicAdapter extends BaseAdapter<Item, PicAdapter.ViewHolder> {
         viewHolder.setImage(item.getIdImage()); // Image
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends BaseViewHolder {
         ImageView ivUser;
         TextView tvName, tvDescription;
 
@@ -54,12 +55,8 @@ public class PicAdapter extends BaseAdapter<Item, PicAdapter.ViewHolder> {
         }
 
         public void setImage(int idImage) {
-            Picasso.with(ivUser.getContext()).
-                    load(idImage).
-                    centerCrop().
-                    resize(60, 60).
-                    transform(new CircleTransform()).
-                    into(ivUser);
+            Glide.with(getContext()).load(idImage).centerCrop().override(60, 60)
+                    .bitmapTransform(new CropCircleTransformation(getContext())).into(ivUser);
         }
     }
 
