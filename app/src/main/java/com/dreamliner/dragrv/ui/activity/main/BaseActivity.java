@@ -24,7 +24,7 @@ import static com.dreamliner.dragrv.common.NormalConstant.NAMES;
 
 public abstract class BaseActivity extends AppCompatActivity implements CallbackItemTouch {
 
-    private RecyclerView mRecyclerView;
+    protected RecyclerView mRecyclerView;
     private PicAdapter mPicAdapter;
 
     private String textDescription = "Subtitle description,lorem ipsum text generic etc";

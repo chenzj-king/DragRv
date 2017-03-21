@@ -9,6 +9,7 @@
     >
 
     <ImageView
+        android:id="@+id/avatar_iv"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:scaleType="fitXY"
@@ -55,5 +56,13 @@
         android:padding="5dp"
         android:src="@drawable/ic_sort"
         android:visibility="visible"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/sort_iv"
+        android:layout_marginTop="10dp"
+        android:background="#dfdfdf"
         />
 </RelativeLayout>
